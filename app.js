@@ -58,11 +58,11 @@ crystalRate.addEventListener("input", (e) => {
 marketPerPack.addEventListener("input", (e) => {
   marketUnit = e.target.value;
   marketResult = calculateBundle(marketPrice, marketUnit);
-  updateResults(marketResults, marketResult);
+  updateResults(marketResults, marketResult.toFixed(1));
 });
 
 marketPackPrice.addEventListener("input", (e) => {
   marketPrice = e.target.value;
   marketResult = calculateBundle(marketPrice, marketUnit);
-  updateResults(marketResults, marketResult);
+  updateResults(marketResults, marketResult.toFixed(1));
 });
