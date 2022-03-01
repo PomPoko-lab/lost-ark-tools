@@ -131,14 +131,14 @@ main input[type="number"] {
   flex-direction: column;
   gap: 0.5em;
   background-color: #3d5a80;
-  padding: 2.5em 4em;
+  padding: 2em 2.5em;
   border-radius: 0.5em;
   box-shadow: 0 0.5em 0.5rem rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 470px) {
   .container {
-    min-width: 26em;
+    min-width: 23.3em;
   }
 }
 
