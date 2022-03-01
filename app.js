@@ -19,7 +19,7 @@ let marketPrice = 0;
 let marketResult = 0;
 
 const updateResults = (element, result) => {
-  element.textContent = result;
+  element.textContent = +result;
 };
 
 const calculateBundle = (price, quantity) => {
