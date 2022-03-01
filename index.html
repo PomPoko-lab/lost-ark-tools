@@ -12,45 +12,67 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <header>
-      <article class="exchange-rate-container">
-        <h1>Crystal Exchange Rate</h1>
-        <form class="form--exchange-rate">
+    <header></header>
+    <main>
+      <h1 class="hide">Mari Shop Calculator</h1>
+      <section title="mari-shop" class="container">
+        <h2 class="title">Mari Shop</h2>
+        <div class="exchange-rate-container">
+          <p class="item-header">Crystal Exchange Rate</p>
           <label for="exchange-rate"></label>
           <input
             type="number"
             name="exchange-rate"
+            class="exchange-rate"
             min="0"
             max="10000"
-            placeholder="500"
+            value="500"
           />
-        </form>
-      </article>
-    </header>
-    <main>
-      <article>
-        <header class="mari-shop-values-container">
-          <p class="mari-header header">Mari's Shop</p>
-          <form class="form--mari-shop">
-            <div>
-              <label for="item-quantity">Item Quantity per pack:</label>
-              <input type="number" min="1" max="100" />
-            </div>
-            <div>
-              <label for="pack-price">Pack Price:</label>
-              <input type="number" min="10" max="1000" />
-            </div>
-          </form>
-        </header>
-      </article>
-      <div>
-        <label for="item-gold-price" class="item-gold-price header"
-          >Market Price?</label
-        >
-        <input type="number" min="0" max="100000" />
-      </div>
+        </div>
+        <div class="rates-container">
+          <div>
+            <label for="item-quantity" class="item-header"
+              >Quantity per bundle</label
+            >
+            <input type="number" min="1" max="100" class="mari--unit-pack" />
+          </div>
+          <div>
+            <label for="pack-price" class="item-header">Bundle Price</label>
+            <input type="number" min="10" max="1000" class="mari--pack-price" />
+          </div>
+        </div>
+        <div class="results-container">
+          <p for="pack-price" class="item-header">Unit Gold</p>
+          <p class="mari--result"></p>
+        </div>
+      </section>
+      <section title="market" class="container">
+        <h2 class="title">Market</h2>
+        <div class="rates-container">
+          <div>
+            <label for="item-quantity" class="item-header"
+              >Quantity per bundle</label
+            >
+            <input type="number" min="1" max="100" class="market--unit-pack" />
+          </div>
+          <div>
+            <label for="pack-price" class="item-header">Bundle Price</label>
+            <input
+              type="number"
+              min="10"
+              max="1000"
+              class="market--pack-price"
+            />
+          </div>
+        </div>
+        <div class="results-container">
+          <p for="pack-price" class="item-header">Unit Gold</p>
+          <p class="market--result"></p>
+        </div>
+      </section>
     </main>
   </body>
 </html>

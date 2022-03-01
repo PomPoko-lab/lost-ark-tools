@@ -74,23 +74,29 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 1.5em;
-  margin-bottom: 3em;
+  gap: 0.7em;
+  margin-bottom: 1.5em;
 }
 
-h1 {
-  font-size: 3rem;
+.title {
+  font-size: 2rem;
   font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5em;
 }
 
-.form--exchange-rate input {
-  height: 2em;
-  width: 6em;
-  font-size: 1rem;
+.exchange-rate-container input {
+  height: 1.5em;
+  width: 4em;
 }
 
 input[type="number"] {
   text-align: center;
+  color: #555;
+  font-size: 1.5rem;
+  border-radius: 0.15em;
+  border: 1px solid black;
+  box-shadow: 0 0.3em 0.2rem rgba(0, 0, 0, 0.1);
 }
 
 main {
@@ -103,50 +109,59 @@ main {
 }
 
 main input[type="number"] {
-  border-radius: 1em;
-  border: none;
   align-self: center;
-  box-shadow: 0 0.3em 0.2rem rgba(0, 0, 0, 0.1);
-  font-size: 1.5rem;
   width: 7em;
 }
 
-main > div > input[type="number"] {
-  width: 7em;
-  height: 1.8em;
-}
-
-.header {
-  font-size: 2rem;
-  font-weight: 700;
+.item-header {
   color: #f07b5f;
-}
-
-label {
-  color: #98c1d9;
-  font-size: 1.1rem;
-  letter-spacing: 0.8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   margin-right: 0.3em;
+  text-align: center;
 }
 
-.mari-shop-values-container {
+.results-container .item-header {
+  color: #e0fbfc;
+}
+
+.container {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
   background-color: #3d5a80;
-  padding: 2em 3em;
+  padding: 2.5em 4em;
   border-radius: 1em;
   box-shadow: 0 0.5em 0.5rem rgba(0, 0, 0, 0.1);
 }
 
-.form--mari-shop {
+@media (min-width: 470px) {
+  .container {
+    min-width: 26em;
+  }
+}
+
+.rates-container {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 1em;
+  margin-bottom: 2em;
 }
 
 div {
   display: flex;
   gap: 0.7em;
   flex-direction: column;
+  align-items: center;
+}
+
+p.mari--result,
+p.market--result {
+  font-size: 1.3rem;
+  min-height: 1em;
+}
+
+.hide {
+  display: none;
 }
