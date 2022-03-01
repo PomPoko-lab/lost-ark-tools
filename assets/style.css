@@ -132,7 +132,7 @@ main input[type="number"] {
   gap: 0.5em;
   background-color: #3d5a80;
   padding: 2.5em 4em;
-  border-radius: 1em;
+  border-radius: 0.5em;
   box-shadow: 0 0.5em 0.5rem rgba(0, 0, 0, 0.1);
 }
 
