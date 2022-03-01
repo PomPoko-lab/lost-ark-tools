@@ -34,18 +34,32 @@
         </div>
         <div class="rates-container">
           <div>
-            <label for="item-quantity" class="item-header"
+            <label for="shop-item-quantity" class="item-header"
               >Quantity per bundle</label
             >
-            <input type="number" min="1" max="100" class="mari--unit-pack" />
+            <input
+              type="number"
+              name="shop-item-quantity"
+              min="1"
+              max="100"
+              class="mari--unit-pack"
+            />
           </div>
           <div>
-            <label for="pack-price" class="item-header">Bundle Price</label>
-            <input type="number" min="10" max="1000" class="mari--pack-price" />
+            <label for="shop-pack-price" class="item-header"
+              >Bundle Price</label
+            >
+            <input
+              type="number"
+              name="shop-pack-price"
+              min="10"
+              max="1000"
+              class="mari--pack-price"
+            />
           </div>
         </div>
         <div class="results-container">
-          <p for="pack-price" class="item-header">Unit Gold</p>
+          <p class="item-header">Unit Gold</p>
           <p class="mari--result"></p>
         </div>
       </section>
@@ -53,15 +67,24 @@
         <h2 class="title">Market</h2>
         <div class="rates-container">
           <div>
-            <label for="item-quantity" class="item-header"
+            <label for="market-item-quantity" class="item-header"
               >Quantity per bundle</label
             >
-            <input type="number" min="1" max="100" class="market--unit-pack" />
-          </div>
-          <div>
-            <label for="pack-price" class="item-header">Bundle Price</label>
             <input
               type="number"
+              name="market-item-quantity"
+              min="1"
+              max="100"
+              class="market--unit-pack"
+            />
+          </div>
+          <div>
+            <label for="market-pack-price" class="item-header"
+              >Bundle Price</label
+            >
+            <input
+              type="number"
+              name="market-pack-price"
               min="10"
               max="1000"
               class="market--pack-price"
@@ -69,7 +92,7 @@
           </div>
         </div>
         <div class="results-container">
-          <p for="pack-price" class="item-header">Unit Gold</p>
+          <p class="item-header">Unit Gold</p>
           <p class="market--result"></p>
         </div>
       </section>
