@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Mari Shop Calculator</title>
+    <title>Lost Ark Tools</title>
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +15,15 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <header></header>
-    <main>
+    <!-- <header></header> -->
+    <nav id="side-nav">
+      <button id="nav--todo" class="nav-button">Daily To-Do</button
+      ><button id="nav--mari" class="nav-button btn--active">
+        Mari Shop Calc
+      </button>
+    </nav>
+    <section id="todo-app"></section>
+    <section id="mari-calc-app" class="app--active">
       <h1 class="hide">Mari Shop Calculator</h1>
       <section title="mari-shop" class="container">
         <h2 class="title">Mari Shop</h2>
@@ -60,7 +67,7 @@
         </div>
         <div class="results-container">
           <p class="item-header">Unit Gold</p>
-          <p class="mari--result"></p>
+          <p class="mari--result results-text"></p>
         </div>
       </section>
       <section title="market" class="container">
@@ -96,6 +103,6 @@
           <p class="market--result"></p>
         </div>
       </section>
-    </main>
+    </section>
   </body>
 </html>
