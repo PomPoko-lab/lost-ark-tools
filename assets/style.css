@@ -63,14 +63,15 @@ Medium: 11px
 
 body {
   line-height: 1;
+  /* min-height: 100vh; */
   font-weight: 400;
   background-color: #293241;
   color: #e0fbfc;
   display: flex;
+  flex-direction: column;
 }
 
 #side-nav {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #1d232e;
@@ -84,6 +85,44 @@ body {
   font-size: 1.2rem;
   font-weight: 500;
   cursor: pointer;
+  transition: ease-out 100ms;
+}
+
+.nav-button:hover {
+  color: #64bbd0;
+  transform: scale(110%) translateX(4.1%);
+  box-shadow: inset 0.5em 0em 0 0 #219ebc;
+}
+
+/* To Do */
+
+#todo-app {
+  padding: 1em 2em;
+}
+
+.add-new-icon {
+  min-height: 50px;
+  color: #219ebc;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.add-new-icon:hover {
+  transform: scale(110%);
+}
+
+/* Mari App */
+
+#mari-calc-app {
+  display: flex;
+  padding: 1em 2em;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#mari-calc-app input[type="number"] {
+  align-self: center;
+  width: 6rem;
 }
 
 .exchange-rate-container {
@@ -117,22 +156,6 @@ input[type="number"] {
   box-shadow: 0 0.3em 0.2rem rgba(0, 0, 0, 0.1);
 }
 
-#mari-calc-app {
-  display: flex;
-  padding: 2em;
-  flex-direction: column;
-  /* justify-content: ; */
-  /* align-items: center; */
-
-  gap: 1em;
-  opacity: 0%;
-}
-
-#mari-calc-app input[type="number"] {
-  align-self: center;
-  width: 6rem;
-}
-
 .item-header {
   color: #fb8500;
   font-size: 1.5rem;
@@ -155,7 +178,7 @@ input[type="number"] {
 .container {
   display: flex;
   flex-direction: column;
-  padding: 2em 2.5em;
+  padding: 1em 2.5em;
   gap: 1em;
   /* border-radius: 0.25em;
   background-color: #3d5a80;
@@ -163,6 +186,11 @@ input[type="number"] {
 }
 
 @media (min-width: 480px) {
+  body {
+    flex-direction: row;
+    min-height: 100vh;
+  }
+
   .container {
     min-width: 23.3em;
   }
@@ -191,15 +219,14 @@ p.market--result {
 /* Utilities */
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .btn--active {
-  /* background-color: #191e27; */
   box-shadow: inset 0.5em 0em 0 0 #219ebc;
   color: #64bbd0;
 }
 
 .app--active {
-  opacity: 100% !important;
+  display: block !important;
 }
