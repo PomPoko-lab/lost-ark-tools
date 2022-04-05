@@ -16,27 +16,304 @@
   </head>
   <body>
     <!-- <header></header> -->
+    <div class="new-char-overlay">
+      <div class="new-char-modal">
+        <form>
+          <div class="modal-item">
+            <label for="char-name">Character Name</label>
+            <input id="char-name" />
+          </div>
+          <div class="modal-item">
+            <label for="modal--guild-donate">Guild Donation</label>
+            <input type="checkbox" id="modal--guild-donate" />
+          </div>
+          <div class="modal-item">
+            <label for="modal--unas">Una's Task</label>
+            <input type="checkbox" id="modal--unas" />
+          </div>
+          <div class="modal-chaosdg">
+            <label for="modal--chaosdg">Chaos Dungeon</label>
+            <input type="checkbox" id="modal--chaosdg" />
+          </div>
+          <div class="modal-gr">
+            <label for="modal--gr">Guardian Raid</label>
+            <input type="checkbox" id="modal--gr" />
+          </div>
+          <div class="modal-adv">
+            <label for="modal--adv">Adventure Island</label>
+            <input type="checkbox" id="modal--adv" />
+          </div>
+          <div class="modal-chaos-g">
+            <label for="modal--chaos-g">Chaos Gate</label>
+            <input type="checkbox" id="modal--chaos-g" />
+          </div>
+          <div class="modal-boss">
+            <label for="modal--boss">World Boss</label>
+            <input type="checkbox" id="modal--boss" />
+          </div>
+          <div class="modal-rapport">
+            <label for="modal--rapport">Rapport</label>
+            <input type="checkbox" id="modal--rapport" />
+          </div>
+          <div class="modal-anguish">
+            <label for="modal--anguish">Anguish Isles</label>
+            <input type="checkbox" id="modal--anguish" />
+          </div>
+          <div class="modal-custom">
+            <label for="modal--custom">Custom</label>
+            <input type="text" />
+            <input type="checkbox" id="modal--custom" />
+          </div>
+        </form>
+      </div>
+    </div>
     <nav id="side-nav">
       <button id="nav--todo" class="nav-button">Daily To-Do</button
       ><button id="nav--mari" class="nav-button btn--active">
         Mari Shop Calc
       </button>
     </nav>
-    <section id="todo-app" class="hide">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="add-new-icon"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
-          clip-rule="evenodd"
-        />
-      </svg>
+    <section id="todo-app" class="hide app--active">
+      <div class="container--todo-chars">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon-add-new"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <div class="character-daily-list">
+          <div class="char-name-custom">
+            <button class="btn-char-delete">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-remove-daily"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <p>Test Char</p>
+          </div>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+        </div>
+        <div class="character-daily-list">
+          <div class="char-name-custom">
+            <button class="btn-char-delete">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-remove-daily"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <p>Test Char</p>
+          </div>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+        </div>
+        <div class="character-daily-list">
+          <div class="char-name-custom">
+            <button class="btn-char-delete">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-remove-daily"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <p>Test Char</p>
+          </div>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+        </div>
+        <div class="character-daily-list">
+          <div class="char-name-custom">
+            <button class="btn-char-delete">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-remove-daily"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <p>Test Char</p>
+          </div>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+        </div>
+        <div class="character-daily-list">
+          <div class="char-name-custom">
+            <button class="btn-char-delete">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-remove-daily"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <p>Test Char</p>
+          </div>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+        </div>
+        <div class="character-daily-list">
+          <div class="char-name-custom">
+            <button class="btn-char-delete">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-remove-daily"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <p>Test Char</p>
+          </div>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+        </div>
+        <div class="character-daily-list">
+          <div class="char-name-custom">
+            <button class="btn-char-delete">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-remove-daily"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <p>Test Char</p>
+          </div>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+        </div>
+        <div class="character-daily-list">
+          <div class="char-name-custom">
+            <button class="btn-char-delete">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-remove-daily"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <p>Test Char</p>
+          </div>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+        </div>
+      </div>
     </section>
-    <section id="mari-calc-app" class="app--active hide">
+    <section id="mari-calc-app" class="hide">
       <h1 class="hide">Mari Shop Calculator</h1>
       <section title="mari-shop" class="container">
         <h2 class="title">Mari Shop</h2>

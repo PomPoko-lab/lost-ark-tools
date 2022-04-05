@@ -97,25 +97,108 @@ body {
 /* To Do */
 
 #todo-app {
-  padding: 1em 2em;
+  padding: 3em;
+  flex: 1;
 }
 
-.add-new-icon {
-  min-height: 50px;
-  color: #219ebc;
+.container--todo-chars {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4em;
+  max-width: 100em;
+}
+
+.character-daily-list {
+  overflow: hidden;
+  background-color: #36455f;
+  box-shadow: 0 0.3em 0.2rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.2em;
+  gap: 0;
+}
+
+.char-name-custom {
+  background-color: #1a7e96;
+  width: 100%;
+  text-align: center;
+  padding: 1em;
+  cursor: pointer;
+  position: relative;
+  transition: all 100ms;
+  font-size: 1.25rem;
+}
+
+.char-name-custom:hover,
+.btn-char-delete:hover,
+.daily-item:hover,
+.icon-add-new:hover {
+  overflow: hidden;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.daily-item {
+  padding: 0.8em 2em;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.btn-char-delete {
+  position: absolute;
+  top: 25%;
+  left: 3%;
+  color: #bce2eb;
+  background-color: transparent;
+  border: none;
+}
+
+.icon-remove-daily {
+  width: 25px;
+}
+
+.daily-complete {
+  background-color: rgba(116, 255, 158, 0.61);
+}
+
+.icon-add-new {
+  width: 60px;
+  color: #4db1c9;
   cursor: pointer;
   transition: all 200ms;
+  position: fixed;
+  top: 90%;
+  left: 3%;
 }
 
-.add-new-icon:hover {
-  transform: scale(110%);
+.new-char-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-char-modal {
+  min-width: 20em;
+  min-height: 30em;
+  background-color: #36455f;
+}
+
+body {
+  overflow: hidden;
 }
 
 /* Mari App */
 
 #mari-calc-app {
   display: flex;
-  padding: 1em 2em;
+  flex: 1;
+  padding: 2em 2em;
   flex-direction: column;
   gap: 1em;
 }
@@ -189,6 +272,11 @@ input[type="number"] {
   body {
     flex-direction: row;
     min-height: 100vh;
+  }
+
+  .container--todo-chars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .container {

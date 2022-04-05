@@ -1,3 +1,4 @@
+// Mari Shop
 const crystalRate = document.querySelector(".exchange-rate");
 const mariPerPack = document.querySelector(".mari--unit-pack");
 const mariPackPrice = document.querySelector(".mari--pack-price");
