@@ -18,60 +18,74 @@
     <!-- <header></header> -->
     <div class="new-char-overlay">
       <div class="new-char-modal">
-        <form>
-          <div class="modal-item">
-            <label for="char-name">Character Name</label>
-            <input id="char-name" />
-          </div>
-          <div class="modal-item">
-            <label for="modal--guild-donate">Guild Donation</label>
-            <input type="checkbox" id="modal--guild-donate" />
-          </div>
-          <div class="modal-item">
-            <label for="modal--unas">Una's Task</label>
-            <input type="checkbox" id="modal--unas" />
-          </div>
-          <div class="modal-chaosdg">
-            <label for="modal--chaosdg">Chaos Dungeon</label>
-            <input type="checkbox" id="modal--chaosdg" />
-          </div>
-          <div class="modal-gr">
-            <label for="modal--gr">Guardian Raid</label>
-            <input type="checkbox" id="modal--gr" />
-          </div>
-          <div class="modal-adv">
-            <label for="modal--adv">Adventure Island</label>
-            <input type="checkbox" id="modal--adv" />
-          </div>
-          <div class="modal-chaos-g">
-            <label for="modal--chaos-g">Chaos Gate</label>
-            <input type="checkbox" id="modal--chaos-g" />
-          </div>
-          <div class="modal-boss">
-            <label for="modal--boss">World Boss</label>
-            <input type="checkbox" id="modal--boss" />
-          </div>
-          <div class="modal-rapport">
-            <label for="modal--rapport">Rapport</label>
-            <input type="checkbox" id="modal--rapport" />
-          </div>
-          <div class="modal-anguish">
-            <label for="modal--anguish">Anguish Isles</label>
-            <input type="checkbox" id="modal--anguish" />
-          </div>
-          <div class="modal-custom">
-            <label for="modal--custom">Custom</label>
-            <input type="text" />
-            <input type="checkbox" id="modal--custom" />
-          </div>
-        </form>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="close-modal"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <div class="modal-item modal--char-name-div">
+          <label for="modal--char-name">Character Name</label>
+          <input id="modal--char-name" type="text" />
+        </div>
+        <div class="modal-item">
+          <button id="modal--guild-donate">Guild Donation</button>
+        </div>
+        <div class="modal-item">
+          <button id="modal--unas">Una's Task</button>
+        </div>
+        <div class="modal-item">
+          <button id="modal--chaosdg">Chaos Dungeon</button>
+        </div>
+        <div class="modal-item">
+          <button id="modal--gr">Guardian Raid</button>
+        </div>
+        <div class="modal-item">
+          <button id="modal--adv">Adventure Island</button>
+        </div>
+        <div class="modal-item">
+          <button id="modal--chaos-g">Chaos Gate</button>
+        </div>
+        <div class="modal-item">
+          <button id="modal--boss">World Boss</button>
+        </div>
+        <div class="modal-item">
+          <button id="modal--rapport">Rapport</button>
+        </div>
+        <div class="modal-item">
+          <button id="modal--anguish">Anguish Isles</button>
+        </div>
+        <div class="modal-item">
+          <button id="modal--custom"><input type="text" /></button>
+        </div>
+        <div class="modal-item">
+          <button id="modal--custom">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon--modal-add-new"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
     <nav id="side-nav">
-      <button id="nav--todo" class="nav-button">Daily To-Do</button
-      ><button id="nav--mari" class="nav-button btn--active">
-        Mari Shop Calc
-      </button>
+      <button id="nav--todo" class="nav-button nav-btn--active">
+        Daily To-Do</button
+      ><button id="nav--mari" class="nav-button">Mari Shop Calc</button>
     </nav>
     <section id="todo-app" class="hide app--active">
       <div class="container--todo-chars">
@@ -105,9 +119,9 @@
             </button>
             <p>Test Char</p>
           </div>
-          <p class="daily-item daily-complete">Guild Donation</p>
-          <p class="daily-item daily-complete">Guild Donation</p>
-          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item btn--active">Guild Donation</p>
+          <p class="daily-item btn--active">Guild Donation</p>
+          <p class="daily-item btn--active">Guild Donation</p>
           <p class="daily-item">Guild Donation</p>
           <p class="daily-item">Guild Donation</p>
           <p class="daily-item">Guild Donation</p>

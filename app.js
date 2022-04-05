@@ -29,17 +29,17 @@ const switchNav = function () {
   resetNav();
   this.id === "nav--mari" && appMari.classList.add("app--active");
   this.id === "nav--todo" && appToDo.classList.add("app--active");
-  this.classList.add("btn--active");
+  this.classList.add("nav-btn--active");
 };
 
 const resetNav = function () {
   if (appMari.classList.contains("app--active")) {
     appMari.classList.remove("app--active");
-    btnNavMari.classList.remove("btn--active");
+    btnNavMari.classList.remove("nav-btn--active");
   }
   if (appToDo.classList.contains("app--active")) {
     appToDo.classList.remove("app--active");
-    btnNavToDo.classList.remove("btn--active");
+    btnNavToDo.classList.remove("nav-btn--active");
   }
 };
 
