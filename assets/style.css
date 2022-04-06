@@ -97,7 +97,7 @@ body {
 /* To Do */
 
 #todo-app {
-  padding: 3em;
+  padding: 1em 3em 3em 3em;
   flex: 1;
 }
 
@@ -105,7 +105,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 4em;
-  max-width: 100em;
+  min-width: 90em;
 }
 
 .character-daily-list {
@@ -156,14 +156,50 @@ body {
   width: 25px;
 }
 
-.icon-add-new {
-  width: 60px;
-  color: #4db1c9;
+menu.dailies-menu {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.icon--add-new {
+  width: 3em;
+  color: white;
   cursor: pointer;
   transition: all 200ms;
-  position: fixed;
-  top: 90%;
-  left: 3%;
+}
+
+.btn--reset {
+  background-color: #36455f;
+  border-radius: 0.5em;
+  border: none;
+  width: 160px;
+  height: 44.98px;
+  color: white;
+}
+
+.btn--reset:hover {
+  cursor: pointer;
+  transform: scale(105%);
+}
+
+.btn--add-new {
+  min-width: 12em;
+  padding: 0.1em;
+  background-color: rgb(83, 189, 88);
+  border-radius: 0.5em;
+  border: none;
+  margin-bottom: 1em;
+  transition: all 100ms;
+}
+
+.btn--add-new:hover {
+  cursor: pointer;
+  transform: scale(105%);
+}
+
+li {
+  list-style-type: none;
 }
 
 /* Modal */
@@ -335,7 +371,7 @@ input[type="number"] {
 
   .container--todo-chars {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .container {
