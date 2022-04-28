@@ -16,56 +16,44 @@
   </head>
   <body>
     <!-- <header></header> -->
-    <div class="new-char-overlay">
+    <div class="new-char-overlay hide">
       <div class="new-char-modal">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="close-modal"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-            clip-rule="evenodd"
-          />
-        </svg>
         <div class="modal-item modal--char-name-div">
           <label for="modal--char-name">Character Name</label>
-          <input id="modal--char-name" type="text" />
+          <input class="modal--char-name" type="text" />
         </div>
         <div class="modal-item">
-          <button id="modal--guild-donate">Guild Donation</button>
+          <button class="modal--guild-donate">Guild Donation</button>
         </div>
         <div class="modal-item">
-          <button id="modal--unas">Una's Task</button>
+          <button class="modal--unas">Una's Task</button>
         </div>
         <div class="modal-item">
-          <button id="modal--chaosdg">Chaos Dungeon</button>
+          <button class="modal--chaosdg">Chaos Dungeon</button>
         </div>
         <div class="modal-item">
-          <button id="modal--gr">Guardian Raid</button>
+          <button class="modal--gr">Guardian Raid</button>
         </div>
         <div class="modal-item">
-          <button id="modal--adv">Adventure Island</button>
+          <button class="modal--adv">Adventure Island</button>
         </div>
         <div class="modal-item">
-          <button id="modal--chaos-g">Chaos Gate</button>
+          <button class="modal--chaos-g">Chaos Gate</button>
         </div>
         <div class="modal-item">
-          <button id="modal--boss">World Boss</button>
+          <button class="modal--boss">World Boss</button>
         </div>
         <div class="modal-item">
-          <button id="modal--rapport">Rapport</button>
+          <button class="modal--rapport">Rapport</button>
         </div>
         <div class="modal-item">
-          <button id="modal--anguish">Anguish Isles</button>
+          <button class="modal--anguish">Anguish Isles</button>
         </div>
         <div class="modal-item">
-          <button id="modal--custom"><input type="text" /></button>
+          <button class="modal--custom"><input type="text" /></button>
         </div>
         <div class="modal-item">
-          <button id="modal--custom">
+          <button id="btn--create-new">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="icon--modal-add-new"
@@ -81,6 +69,39 @@
           </button>
         </div>
       </div>
+      <menu class="modal--menu-container"
+        ><li>
+          <button class="btn--close-modal">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon--close-modal"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button class="btn--finish-modal">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon--finish-modal"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button></li
+      ></menu>
     </div>
     <nav id="side-nav">
       <button id="nav--todo" class="nav-button nav-btn--active">
@@ -414,7 +435,7 @@
         </div>
         <div class="results-container">
           <p class="item-header">Unit Gold</p>
-          <p class="market--result"></p>
+          <p class="market--result results-text"></p>
         </div>
       </section>
     </section>

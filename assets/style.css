@@ -53,6 +53,10 @@ Medium: 11px
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 */
 
+/* html {
+  height: 100%;
+} */
+
 * {
   padding: 0;
   margin: 0;
@@ -63,18 +67,19 @@ Medium: 11px
 
 body {
   line-height: 1;
-  /* min-height: 100vh; */
   font-weight: 400;
   background-color: #293241;
   color: #e0fbfc;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 #side-nav {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #1d232e;
+  padding: 0.3em 0.3em;
 }
 
 .nav-button {
@@ -86,12 +91,12 @@ body {
   font-weight: 500;
   cursor: pointer;
   transition: ease-out 100ms;
+  min-width: max-content;
 }
 
 .nav-button:hover {
   color: #64bbd0;
-  transform: scale(110%) translateX(4.1%);
-  box-shadow: inset 0.5em 0em 0 0 #219ebc;
+  transform: scale(105%);
 }
 
 /* To Do */
@@ -102,10 +107,11 @@ body {
 }
 
 .container--todo-chars {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-flow: row wrap;
+  /* max-width: 100vw; */
+  /* height: 100; */
   gap: 4em;
-  min-width: 90em;
 }
 
 .character-daily-list {
@@ -114,6 +120,7 @@ body {
   box-shadow: 0 0.3em 0.2rem rgba(0, 0, 0, 0.1);
   border-radius: 0.2em;
   gap: 0;
+  min-width: 18em;
 }
 
 .char-name-custom {
@@ -123,16 +130,18 @@ body {
   padding: 1em;
   cursor: pointer;
   position: relative;
-  transition: all 100ms;
+  transition: all 150ms;
   font-size: 1.25rem;
 }
 
-.char-name-custom:hover,
+.char-name-custom:hover {
+  filter: brightness(120%);
+}
+
 .btn-char-delete:hover,
 .daily-item:hover,
 .icon-add-new:hover {
-  overflow: hidden;
-  transform: scale(1.1);
+  box-shadow: inset 0 0 100em 100em rgba(255, 255, 255, 0.1);
   cursor: pointer;
 }
 
@@ -141,15 +150,23 @@ body {
   font-size: 1.2rem;
   text-align: center;
   width: 100%;
+  transition: all 100ms;
 }
 
 .btn-char-delete {
   position: absolute;
   top: 25%;
-  left: 3%;
+  left: -20%;
   color: #bce2eb;
-  background-color: transparent;
+  background-color: rgb(245, 72, 60);
+  padding: 0.1em 0.4em 0.1em;
+  border-radius: 0.2em;
   border: none;
+  transition: ease-in 300ms;
+}
+
+.btn-char-delete-active {
+  left: 7%;
 }
 
 .icon-remove-daily {
@@ -171,31 +188,32 @@ menu.dailies-menu {
 
 .btn--reset {
   background-color: #36455f;
-  border-radius: 0.5em;
+  border-radius: 0.2em;
   border: none;
   width: 160px;
   height: 44.98px;
   color: white;
+  transition: ease-in 200ms;
 }
 
 .btn--reset:hover {
   cursor: pointer;
-  transform: scale(105%);
+  filter: brightness(110%);
 }
 
 .btn--add-new {
   min-width: 12em;
   padding: 0.1em;
   background-color: rgb(83, 189, 88);
-  border-radius: 0.5em;
+  border-radius: 0.2em;
   border: none;
   margin-bottom: 1em;
-  transition: all 100ms;
+  transition: all 200ms;
 }
 
 .btn--add-new:hover {
   cursor: pointer;
-  transform: scale(105%);
+  filter: brightness(110%);
 }
 
 li {
@@ -215,6 +233,7 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.4em;
 }
 
 .new-char-modal {
@@ -227,20 +246,52 @@ li {
   border-radius: 0.1em;
   overflow: hidden;
   box-shadow: 0 0.3em 0.2rem rgba(0, 0, 0, 0.1);
-  position: relative;
 }
 
-.close-modal {
-  max-width: 2em;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  transition: all 200ms;
+.modal--menu-container {
+  display: flex;
+  justify-content: center;
+  min-width: 20em;
+  gap: 0.5em;
 }
 
-.close-modal:hover {
+.modal--menu-container li,
+.modal--menu-container button {
+  flex: 1;
+  height: 100%;
+}
+
+.modal--menu-container li {
+  width: 10.7em;
+}
+
+.modal--menu-container button {
+  width: 100%;
+}
+
+.modal--menu-container button:hover {
+  filter: brightness(130%);
   cursor: pointer;
-  transform: scale(1.1);
+}
+
+.btn--close-modal {
+  background-color: rgb(245, 72, 60);
+  border: none;
+  padding: 0.5em 0;
+  border-radius: 0.2em;
+}
+
+.btn--finish-modal {
+  background-color: rgb(102, 199, 89);
+  border: none;
+  padding: 0.5em 0;
+  border-radius: 0.2em;
+}
+
+.icon--close-modal,
+.icon--finish-modal {
+  max-width: 2em;
+  color: white;
 }
 
 .modal-item {
@@ -280,12 +331,8 @@ li {
   max-width: 2em;
 }
 
-button#modal--custom {
-  padding: 0.4em;
-}
-
-body {
-  overflow: hidden;
+button#modal--custom #btn--create-new {
+  padding: 0.6em;
 }
 
 /* Mari App */
@@ -363,22 +410,6 @@ input[type="number"] {
   box-shadow: 0 0.5em 0.5rem rgba(0, 0, 0, 0.1); */
 }
 
-@media (min-width: 480px) {
-  body {
-    flex-direction: row;
-    min-height: 100vh;
-  }
-
-  .container--todo-chars {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  .container {
-    min-width: 23.3em;
-  }
-}
-
 .rates-container {
   display: flex;
   flex-direction: column;
@@ -399,19 +430,43 @@ p.market--result {
   min-height: 1em;
 }
 
+/* @media (max-width: 480px) {
+  body {
+    flex-direction: row;
+    min-height: 100vh;
+  }
+
+  .container--todo-chars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .container {
+    min-width: 23.3em;
+  }
+} */
+
 /* Utilities */
+
+button {
+  transition: all 200ms;
+}
 
 .hide {
   display: none !important;
 }
 
+.hide-scroll {
+  overflow: hidden;
+}
+
 .nav-btn--active {
-  box-shadow: inset 0.5em 0em 0 0 #219ebc;
+  box-shadow: inset 0.2em 0em 0 0 #219ebc;
   color: #64bbd0;
 }
 
 .btn--active {
-  background-color: rgba(116, 255, 158, 0.61);
+  background-color: rgba(116, 255, 158, 0.61) !important;
 }
 
 .app--active {

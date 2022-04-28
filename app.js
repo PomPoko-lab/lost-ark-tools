@@ -1,4 +1,126 @@
+// To Do
+
+// Modal
+
+const modalOverlay = document.querySelector(".new-char-overlay");
+const modalOptionCharName = document.querySelector(".modal--char-name");
+const modalOptionDonate = document.querySelector(".modal--guild-donate");
+const modalOptionUnas = document.querySelector(".modal--unas");
+const modalOptionChaosdg = document.querySelector(".modal--chaosdg");
+const modalOptionGR = document.querySelector(".modal--gr");
+const modalOptionAdv = document.querySelector(".modal--adv");
+const modalOptionChaosG = document.querySelector(".modal--chaos-g");
+const modalOptionBoss = document.querySelector(".modal--boss");
+const modalOptionRapport = document.querySelector(".modal--rapport");
+const modalOptionAnguish = document.querySelector(".modal--anguish");
+const modalContainer = document.querySelector(".new-char-modal");
+const btnModalNewCustom = document.querySelector("#btn--create-new");
+let modalCustomNode = document.querySelectorAll(".modal--custom input");
+const modalNode = document.querySelectorAll(".modal-item button");
+
+const modalBtnSubmit = document.querySelector(".btn--finish-modal");
+
+const charList = [];
+const currList = [];
+
+// New List Creation Modal
+
+const btnCloseModal = document.querySelector(".btn--close-modal");
+const btnAddNewChar = document.querySelector(".btn--add-new");
+
+const resetCustomNode = function () {
+  modalCustomNode = document.querySelectorAll(".modal--custom input");
+};
+
+const getModalValues = function () {
+  const formatValue = function (str) {
+    return str.replace(str.at(0), str.at(0)).toUpperCase().trim();
+  };
+  const charName = [
+    formatValue(modalOptionCharName.value) ||
+      formatValue(`NoName${charList.length + 1}`),
+  ];
+
+  modalNode.forEach((node, i) => {
+    if (node.classList.contains("btn--active")) {
+      if (node.textContent !== "") {
+        charName.push(formatValue(node.textContent));
+      } else {
+        charName.push(formatValue(modalCustomNode[i - 9].value));
+      }
+    }
+  });
+  charList.push(charName);
+};
+
+const resetModalValues = function () {
+  modalNode.forEach((node) => {
+    node.classList.remove("btn--active");
+    modalOptionCharName.value = "";
+    modalCustomNode.forEach((customNode) => {
+      customNode.value = "";
+    });
+  });
+};
+
+const closeModal = function () {
+  resetModalValues();
+  modalOverlay.classList.add("hide");
+  body.classList.remove("hide-scroll");
+};
+
+const openModal = function () {
+  modalOverlay.classList.remove("hide");
+  body.classList.add("hide-scroll");
+};
+
+const createNewList = function () {
+  getModalValues();
+  closeModal();
+};
+
+const createNewCustomNode = function () {
+  const newEl = document.createElement("div");
+  newEl.classList.add("modal-item");
+  newEl.innerHTML = `<button class="modal--custom"><input type="text" /></button>
+`;
+  btnModalNewCustom.before(newEl);
+
+  resetCustomNode();
+};
+
+// Open and Close modal
+
+btnModalNewCustom.addEventListener("click", createNewCustomNode);
+
+btnCloseModal.addEventListener("click", closeModal);
+
+btnAddNewChar.addEventListener("click", openModal);
+
+// List creation from Modal
+
+modalContainer.addEventListener("click", (e) => {
+  if (e.target.tagName.toLowerCase() === "button") {
+    e.target.classList.toggle("btn--active");
+  }
+});
+
+modalBtnSubmit.addEventListener("click", createNewList);
+
+// Daily List
+
+const charContainers = document.querySelector(".container--todo-chars");
+const btnListCharName = document.querySelectorAll(".char-name-custom");
+const btnCharDel = document.querySelectorAll(".btn-char-delete");
+const body = document.querySelector("body");
+
+charContainers.addEventListener("click", (e) => {
+  e.target.classList.contains("char-name-custom") &&
+    e.target.firstElementChild.classList.toggle("btn-char-delete-active");
+});
+
 // Mari Shop
+
 const crystalRate = document.querySelector(".exchange-rate");
 const mariPerPack = document.querySelector(".mari--unit-pack");
 const mariPackPrice = document.querySelector(".mari--pack-price");
