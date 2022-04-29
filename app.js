@@ -17,6 +17,9 @@ const modalContainer = document.querySelector(".new-char-modal");
 const btnModalNewCustom = document.querySelector("#btn--create-new");
 let modalCustomNode = document.querySelectorAll(".modal--custom input");
 const modalNode = document.querySelectorAll(".modal-item button");
+const modalActive = document
+  .querySelector(".new-char-modal")
+  .getElementsByClassName("btn--active");
 
 const modalBtnSubmit = document.querySelector(".btn--finish-modal");
 
@@ -53,8 +56,18 @@ const getModalValues = function () {
   charList.push(charName);
 };
 
+// const resetModalValues = function () {
+//   modalNode.forEach((node) => {
+//     node.classList.remove("btn--active");
+//     modalOptionCharName.value = "";
+//     modalCustomNode.forEach((customNode) => {
+//       customNode.value = "";
+//     });
+//   });
+// };
+
 const resetModalValues = function () {
-  modalNode.forEach((node) => {
+  [...modalActive].forEach((node) => {
     node.classList.remove("btn--active");
     modalOptionCharName.value = "";
     modalCustomNode.forEach((customNode) => {
@@ -100,9 +113,9 @@ btnAddNewChar.addEventListener("click", openModal);
 // List creation from Modal
 
 modalContainer.addEventListener("click", (e) => {
-  if (e.target.tagName.toLowerCase() === "button") {
-    e.target.classList.toggle("btn--active");
-  }
+  if (!e.target.closest("button") || e.target.tagName.toLowerCase() === "input")
+    return;
+  e.target.classList.toggle("btn--active");
 });
 
 modalBtnSubmit.addEventListener("click", createNewList);
