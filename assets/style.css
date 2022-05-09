@@ -139,7 +139,6 @@ body {
 }
 
 .btn-char-delete:hover,
-.daily-item:hover,
 .icon-add-new:hover {
   box-shadow: inset 0 0 100em 100em rgba(255, 255, 255, 0.1);
   cursor: pointer;
@@ -151,6 +150,11 @@ body {
   text-align: center;
   width: 100%;
   transition: all 100ms;
+}
+
+.daily-item:hover {
+  background-color: rgba(116, 255, 158, 0.61);
+  cursor: pointer;
 }
 
 .btn-char-delete {
@@ -218,6 +222,10 @@ menu.dailies-menu {
 
 li {
   list-style-type: none;
+}
+
+.daily-complete {
+  background-color: rgba(116, 255, 158, 0.61);
 }
 
 /* Modal */

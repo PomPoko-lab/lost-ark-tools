@@ -28,9 +28,9 @@ const btnCharDel = document.querySelectorAll(".btn-char-delete");
 const body = document.querySelector("body");
 const btnCloseModal = document.querySelector(".btn--close-modal");
 const btnAddNewChar = document.querySelector(".btn--add-new");
+const btnReset = document.querySelector(".btn--reset");
 
-const charList = [];
-const currList = [];
+let charList = [];
 
 // Rewrite with OOP
 
@@ -38,43 +38,78 @@ class DailiesApp {
   customCounter = 0;
   creator = {};
   constructor() {
+    this._getLocalStorage();
     btnModalNewCustom.addEventListener("click", this._addNewCustom.bind(this));
     btnCloseModal.addEventListener("click", this._closeModal.bind(this));
     btnAddNewChar.addEventListener("click", this._openModal);
     modalBtnSubmit.addEventListener("click", this._submitModal.bind(this));
-    modalContainer.addEventListener("click", this._toggleActive.bind(this));
+    modalContainer.addEventListener(
+      "click",
+      this._toggleActiveModal.bind(this)
+    );
+
+    charList.forEach((char) => this._renderCharLists(char));
+
+    charContainers.addEventListener("click", (e) => {
+      this._toggleActiveDaily(e);
+      this._deleteChar(e);
+    });
+    btnReset.addEventListener("click", this._resetAll.bind(this));
   }
 
-  //   modalContainer.addEventListener("click", (e) => {
-  //     if (
-  //       !e.target.closest("button") ||
-  //       e.target
-  //         .closest(".modal-item")
-  //         .firstElementChild.classList.contains("btn--new") ||
-  //       e.target.tagName.toLowerCase() === "input" ||
-  //       e.target.tagName.toLowerCase() === "svg"
-  //     )
-  //       return;
-  //     e.target.classList.toggle("btn--active");
-  //     const obj = {};
-  //     const value = e.target.value || e.target.lastElementChild.value;
-  //     if (obj.hasOwnProperty(value)) {
-  //       delete obj.value;
-  //     } else {
-  //       obj[value] = "false";
-  //     }
-  //     Object.assign(obj, this.creator);
+  _formatValue(str) {
+    if (!str) return "";
+    if (str === "guild-donate") str = `Guild Donation`;
+    if (str === "unas") str = `Una's Task`;
+    if (str === "chaosdg") str = `Chaos Dungeon`;
+    if (str === "gr") str = `Guardian Raid`;
+    if (str === "adv") str = `Adventure Island`;
+    if (str === "chaos-g") str = `Chaos Gate`;
+    if (str === "boss") str = `World Boss`;
+    if (str === "rapport") str = `Rapport`;
+    if (str === "anguish") str = `Anguish Isles`;
 
-  //     // if (this.creator.hasOwnProperty(value)) {
-  //     //   this.creator[value] = "false";
-  //     // } else {
-  //     //   this.creator[value] = "true";
-  //     // }
-  //     console.log(obj, this.creator);
-  //   });
-  // }
+    str = str.trim();
+    return str[0].toUpperCase() + str.slice(1);
+  }
 
-  _toggleActive(e) {
+  _deleteChar(e) {
+    if (!e.target.dataset.char) return;
+    console.log(e);
+  }
+
+  _toggleActiveDaily(e) {
+    if (!e.target.dataset.char) return;
+
+    const charObj = charList.find((char) => {
+      return char.character === e.target.dataset.char;
+    });
+
+    const daily = e.target.textContent;
+
+    if (charObj[daily] === "true") {
+      e.target.classList.remove("daily-complete");
+      charObj[daily] = "false";
+    } else {
+      e.target.classList.add("daily-complete");
+      charObj[daily] = "true";
+    }
+    this._setLocalStorage();
+  }
+
+  _resetAll() {
+    charList.forEach((char) => {
+      Object.keys(char).forEach((key) => {
+        if (char[key] === "true") {
+          char[key] = "false";
+        }
+      });
+    });
+    this._setLocalStorage();
+    location.reload();
+  }
+
+  _toggleActiveModal(e) {
     if (
       !e.target.closest("button") ||
       e.target
@@ -88,11 +123,10 @@ class DailiesApp {
     const obj = {};
     const value = e.target.value || e.target.lastElementChild.value;
     if (e.target.classList.contains("btn--active")) {
-      this.creator[value] = "false";
+      this.creator[this._formatValue(value)] = "false";
     } else {
       delete this.creator[value];
     }
-    console.log(this.creator);
   }
 
   _openModal() {
@@ -117,8 +151,6 @@ class DailiesApp {
     this.customCounter = 0;
     this.creator = {};
     console.log(this.creator);
-
-    // this._resetCustomNodes();
   }
 
   _addNewCustom() {
@@ -140,41 +172,87 @@ class DailiesApp {
       node.remove();
     });
   }
-  // _getModalValues() {
-  //   const formatValue = function (str) {
-  //     return str.replace(str.at(0), str.at(0)).toUpperCase().trim();
-  //   };
 
-  //   const obj = {};
-  //   let charName;
-
-  //   const modalInputs = [...modalContainer.children];
-  //   console.log(modalInputs[0].lastElementChild.value);
-
-  //   if (!modalInputs.at(0).lastElementChild.value === "") {
-  //     charName = formatValue(modalInputs.at(0).lastElementChild.value);
-  //   } else {
-  //     charName = formatValue(`NoName${charList.length + 1}`);
-  //   }
-
-  //   modalNode.forEach((node) => {
-  //     console.log(node);
-  //   });
-  //   console.log(obj, charName);
-  //   // console.log(modalNode);
-  //   charList.push(obj);
-  // }
   _getModalValues() {
-    let charName = modalOptionCharName.value;
+    let charName = this._formatValue(modalOptionCharName.value);
     if (charName === "") charName = `NoName${charList.length + 1}`;
-    this.creator["@character"] = charName;
-    console.log(this.creator);
+    this.creator.character = charName;
     charList.push(new List(this.creator));
   }
 
   _submitModal() {
     this._getModalValues();
+    this._renderCharLists(this.creator);
     this._closeModal();
+    this._setLocalStorage();
+  }
+
+  _renderCharLists(listObj) {
+    let html = `
+    <div class="character-daily-list">
+    <div class="char-name-custom">
+      <button class="btn-char-delete">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon-remove-daily"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+      <p>${listObj.character}</p>
+    </div>
+  `;
+
+    // If object value is false, no highlight. If it's true, highlight value in DOM
+    const checkActiveDaily = (val) => {
+      if (val === "false") return " ";
+      return " daily-complete";
+    };
+
+    const getChar = (obj) => {
+      return obj.character;
+    };
+
+    Object.entries(listObj).forEach(([key, value]) => {
+      if (key === "character") return;
+
+      html += `<p data-char='${getChar(
+        listObj
+      )}' class="daily-item${checkActiveDaily(value)}">${key}</p>`;
+    });
+
+    //   const htmlLoop = `<p class="daily-item">2222</p>
+    // <p class="daily-item">Guild Donation</p>
+    // <p class="daily-item">Guild Donation</p>
+    // <p class="daily-item">Guild Donation</p>
+    // <p class="daily-item">Guild Donation</p>
+    // <p class="daily-item">Guild Donation</p>
+    // <p class="daily-item">Guild Donation</p>
+    // <p class="daily-item">Guild Donation</p>
+    // <p class="daily-item">Guild Donation</p>`;
+
+    html += `
+</div>`;
+
+    charContainers.insertAdjacentHTML("afterbegin", html);
+  }
+
+  _getObjbyCharName(obj, charName) {}
+
+  _setLocalStorage() {
+    localStorage.setItem("chars", JSON.stringify(charList));
+  }
+
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem("chars"));
+    if (!data) return;
+    charList = data;
   }
 }
 
