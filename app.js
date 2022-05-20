@@ -1,3 +1,6 @@
+"use strict";
+import "core-js";
+
 // To Do
 
 // Modal
@@ -16,7 +19,7 @@ const modalOptionAnguish = document.querySelector(".modal--anguish");
 const modalContainer = document.querySelector(".new-char-modal");
 const btnModalNewCustom = document.querySelector("#btn--create-new");
 let modalCustomNode = document.querySelectorAll(".modal--custom input");
-const modalNode = document.querySelectorAll(".modal-item button");
+
 const modalActive = document
   .querySelector(".new-char-modal")
   .getElementsByClassName("btn--active");
@@ -54,7 +57,27 @@ class DailiesApp {
       this._toggleActiveDaily(e);
       this._deleteChar(e);
     });
+    charContainers.addEventListener("click", function (e) {
+      const btnChar = e.target.closest(".char-name-custom");
+      const btnDel = e.target.closest(".btn-char-delete");
+      if (!btnChar || btnDel) return;
+      btnChar.firstElementChild.classList.toggle("btn-char-delete-active");
+    });
     btnReset.addEventListener("click", this._resetAll.bind(this));
+  }
+
+  _deleteChar(e) {
+    const btnDel = e.target.closest(".btn-char-delete");
+    if (!btnDel) return;
+    const getCharName = function (parentEl) {
+      return parentEl.nextElementSibling.textContent;
+    };
+    const newList = charList.filter((char) => {
+      return char.character !== getCharName(btnDel);
+    });
+    charList = newList;
+    this._setLocalStorage();
+    location.reload();
   }
 
   _formatValue(str) {
@@ -71,11 +94,6 @@ class DailiesApp {
 
     str = str.trim();
     return str[0].toUpperCase() + str.slice(1);
-  }
-
-  _deleteChar(e) {
-    if (!e.target.dataset.char) return;
-    console.log(e);
   }
 
   _toggleActiveDaily(e) {

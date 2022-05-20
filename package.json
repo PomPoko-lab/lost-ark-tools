@@ -1,0 +1,25 @@
+{
+  "name": "mari-shop-calc",
+  "version": "1.0.0",
+  "description": "Gold conversions for Lost Arks Mari Shop",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PomPoko-lab/mari-shop-calc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PomPoko-lab/mari-shop-calc/issues"
+  },
+  "homepage": "https://github.com/PomPoko-lab/mari-shop-calc#readme",
+  "devDependencies": {
+    "parcel": "^2.5.0"
+  },
+  "dependencies": {
+    "core-js": "^3.22.5"
+  }
+}
