@@ -1,22 +1,24 @@
 {
-  "name": "mari-shop-calc",
+  "name": "lost-ark-tools",
   "version": "1.0.0",
-  "description": "Gold conversions for Lost Arks Mari Shop",
+  "description": "Some tools created for lost ark",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PomPoko-lab/mari-shop-calc.git"
+    "url": "git+https://github.com/PomPoko-lab/lost-ark-tools.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PomPoko-lab/mari-shop-calc/issues"
+    "url": "https://github.com/PomPoko-lab/lost-ark-tools/issues"
   },
-  "homepage": "https://github.com/PomPoko-lab/mari-shop-calc#readme",
+  "homepage": "https://pompoko.io/lost-ark-tools/",
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "parcel": "^2.5.0"
   },
   "dependencies": {
