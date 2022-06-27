@@ -1,37 +1,36 @@
-"use strict";
-import "core-js";
+'use strict';
 
 // To Do
 
 // Modal
 
-const modalOverlay = document.querySelector(".new-char-overlay");
-const modalOptionCharName = document.querySelector(".modal--char-name");
-const modalOptionDonate = document.querySelector(".modal--guild-donate");
-const modalOptionUnas = document.querySelector(".modal--unas");
-const modalOptionChaosdg = document.querySelector(".modal--chaosdg");
-const modalOptionGR = document.querySelector(".modal--gr");
-const modalOptionAdv = document.querySelector(".modal--adv");
-const modalOptionChaosG = document.querySelector(".modal--chaos-g");
-const modalOptionBoss = document.querySelector(".modal--boss");
-const modalOptionRapport = document.querySelector(".modal--rapport");
-const modalOptionAnguish = document.querySelector(".modal--anguish");
-const modalContainer = document.querySelector(".new-char-modal");
-const btnModalNewCustom = document.querySelector("#btn--create-new");
-let modalCustomNode = document.querySelectorAll(".modal--custom input");
+const modalOverlay = document.querySelector('.new-char-overlay');
+const modalOptionCharName = document.querySelector('.modal--char-name');
+const modalOptionDonate = document.querySelector('.modal--guild-donate');
+const modalOptionUnas = document.querySelector('.modal--unas');
+const modalOptionChaosdg = document.querySelector('.modal--chaosdg');
+const modalOptionGR = document.querySelector('.modal--gr');
+const modalOptionAdv = document.querySelector('.modal--adv');
+const modalOptionChaosG = document.querySelector('.modal--chaos-g');
+const modalOptionBoss = document.querySelector('.modal--boss');
+const modalOptionRapport = document.querySelector('.modal--rapport');
+const modalOptionAnguish = document.querySelector('.modal--anguish');
+const modalContainer = document.querySelector('.new-char-modal');
+const btnModalNewCustom = document.querySelector('#btn--create-new');
+let modalCustomNode = document.querySelectorAll('.modal--custom input');
 
 const modalActive = document
-  .querySelector(".new-char-modal")
-  .getElementsByClassName("btn--active");
+  .querySelector('.new-char-modal')
+  .getElementsByClassName('btn--active');
 
-const modalBtnSubmit = document.querySelector(".btn--finish-modal");
-const charContainers = document.querySelector(".container--todo-chars");
-const btnListCharName = document.querySelectorAll(".char-name-custom");
-const btnCharDel = document.querySelectorAll(".btn-char-delete");
-const body = document.querySelector("body");
-const btnCloseModal = document.querySelector(".btn--close-modal");
-const btnAddNewChar = document.querySelector(".btn--add-new");
-const btnReset = document.querySelector(".btn--reset");
+const modalBtnSubmit = document.querySelector('.btn--finish-modal');
+const charContainers = document.querySelector('.container--todo-chars');
+const btnListCharName = document.querySelectorAll('.char-name-custom');
+const btnCharDel = document.querySelectorAll('.btn-char-delete');
+const body = document.querySelector('body');
+const btnCloseModal = document.querySelector('.btn--close-modal');
+const btnAddNewChar = document.querySelector('.btn--add-new');
+const btnReset = document.querySelector('.btn--reset');
 
 let charList = [];
 
@@ -42,32 +41,32 @@ class DailiesApp {
   creator = {};
   constructor() {
     this._getLocalStorage();
-    btnModalNewCustom.addEventListener("click", this._addNewCustom.bind(this));
-    btnCloseModal.addEventListener("click", this._closeModal.bind(this));
-    btnAddNewChar.addEventListener("click", this._openModal);
-    modalBtnSubmit.addEventListener("click", this._submitModal.bind(this));
+    btnModalNewCustom.addEventListener('click', this._addNewCustom.bind(this));
+    btnCloseModal.addEventListener('click', this._closeModal.bind(this));
+    btnAddNewChar.addEventListener('click', this._openModal);
+    modalBtnSubmit.addEventListener('click', this._submitModal.bind(this));
     modalContainer.addEventListener(
-      "click",
+      'click',
       this._toggleActiveModal.bind(this)
     );
 
     charList.forEach((char) => this._renderCharLists(char));
 
-    charContainers.addEventListener("click", (e) => {
+    charContainers.addEventListener('click', (e) => {
       this._toggleActiveDaily(e);
       this._deleteChar(e);
     });
-    charContainers.addEventListener("click", function (e) {
-      const btnChar = e.target.closest(".char-name-custom");
-      const btnDel = e.target.closest(".btn-char-delete");
+    charContainers.addEventListener('click', function (e) {
+      const btnChar = e.target.closest('.char-name-custom');
+      const btnDel = e.target.closest('.btn-char-delete');
       if (!btnChar || btnDel) return;
-      btnChar.firstElementChild.classList.toggle("btn-char-delete-active");
+      btnChar.firstElementChild.classList.toggle('btn-char-delete-active');
     });
-    btnReset.addEventListener("click", this._resetAll.bind(this));
+    btnReset.addEventListener('click', this._resetAll.bind(this));
   }
 
   _deleteChar(e) {
-    const btnDel = e.target.closest(".btn-char-delete");
+    const btnDel = e.target.closest('.btn-char-delete');
     if (!btnDel) return;
     const getCharName = function (parentEl) {
       return parentEl.nextElementSibling.textContent;
@@ -81,16 +80,16 @@ class DailiesApp {
   }
 
   _formatValue(str) {
-    if (!str) return "";
-    if (str === "guild-donate") str = `Guild Donation`;
-    if (str === "unas") str = `Una's Task`;
-    if (str === "chaosdg") str = `Chaos Dungeon`;
-    if (str === "gr") str = `Guardian Raid`;
-    if (str === "adv") str = `Adventure Island`;
-    if (str === "chaos-g") str = `Chaos Gate`;
-    if (str === "boss") str = `World Boss`;
-    if (str === "rapport") str = `Rapport`;
-    if (str === "anguish") str = `Anguish Isles`;
+    if (!str) return '';
+    if (str === 'guild-donate') str = `Guild Donation`;
+    if (str === 'unas') str = `Una's Task`;
+    if (str === 'chaosdg') str = `Chaos Dungeon`;
+    if (str === 'gr') str = `Guardian Raid`;
+    if (str === 'adv') str = `Adventure Island`;
+    if (str === 'chaos-g') str = `Chaos Gate`;
+    if (str === 'boss') str = `World Boss`;
+    if (str === 'rapport') str = `Rapport`;
+    if (str === 'anguish') str = `Anguish Isles`;
 
     str = str.trim();
     return str[0].toUpperCase() + str.slice(1);
@@ -105,12 +104,12 @@ class DailiesApp {
 
     const daily = e.target.textContent;
 
-    if (charObj[daily] === "true") {
-      e.target.classList.remove("daily-complete");
-      charObj[daily] = "false";
+    if (charObj[daily] === 'true') {
+      e.target.classList.remove('daily-complete');
+      charObj[daily] = 'false';
     } else {
-      e.target.classList.add("daily-complete");
-      charObj[daily] = "true";
+      e.target.classList.add('daily-complete');
+      charObj[daily] = 'true';
     }
     this._setLocalStorage();
   }
@@ -118,8 +117,8 @@ class DailiesApp {
   _resetAll() {
     charList.forEach((char) => {
       Object.keys(char).forEach((key) => {
-        if (char[key] === "true") {
-          char[key] = "false";
+        if (char[key] === 'true') {
+          char[key] = 'false';
         }
       });
     });
@@ -129,41 +128,41 @@ class DailiesApp {
 
   _toggleActiveModal(e) {
     if (
-      !e.target.closest("button") ||
+      !e.target.closest('button') ||
       e.target
-        .closest(".modal-item")
-        .firstElementChild.classList.contains("btn--new") ||
-      e.target.tagName.toLowerCase() === "input" ||
-      e.target.tagName.toLowerCase() === "svg"
+        .closest('.modal-item')
+        .firstElementChild.classList.contains('btn--new') ||
+      e.target.tagName.toLowerCase() === 'input' ||
+      e.target.tagName.toLowerCase() === 'svg'
     )
       return;
-    e.target.classList.toggle("btn--active");
+    e.target.classList.toggle('btn--active');
     const obj = {};
     const value = e.target.value || e.target.lastElementChild.value;
-    if (e.target.classList.contains("btn--active")) {
-      this.creator[this._formatValue(value)] = "false";
+    if (e.target.classList.contains('btn--active')) {
+      this.creator[this._formatValue(value)] = 'false';
     } else {
       delete this.creator[value];
     }
   }
 
   _openModal() {
-    modalOverlay.classList.remove("hide");
-    body.classList.add("hide-scroll");
+    modalOverlay.classList.remove('hide');
+    body.classList.add('hide-scroll');
   }
 
   _closeModal() {
     this._resetModal();
-    modalOverlay.classList.add("hide");
-    body.classList.remove("hide-scroll");
+    modalOverlay.classList.add('hide');
+    body.classList.remove('hide-scroll');
   }
 
   _resetModal() {
     [...modalActive].forEach((node) => {
-      node.classList.remove("btn--active");
-      modalOptionCharName.value = "";
+      node.classList.remove('btn--active');
+      modalOptionCharName.value = '';
       modalCustomNode.forEach((customNode) => {
-        customNode.value = "";
+        customNode.value = '';
       });
     });
     this.customCounter = 0;
@@ -179,13 +178,13 @@ class DailiesApp {
       </div>
       `;
     btnModalNewCustom
-      .closest(".modal-item")
-      .insertAdjacentHTML("beforebegin", html);
+      .closest('.modal-item')
+      .insertAdjacentHTML('beforebegin', html);
     this.customCounter++;
   }
 
   _resetCustomNodes() {
-    modalCustomNode = document.querySelectorAll(".modal--custom");
+    modalCustomNode = document.querySelectorAll('.modal--custom');
     modalCustomNode.forEach((node) => {
       node.remove();
     });
@@ -193,7 +192,7 @@ class DailiesApp {
 
   _getModalValues() {
     let charName = this._formatValue(modalOptionCharName.value);
-    if (charName === "") charName = `NoName${charList.length + 1}`;
+    if (charName === '') charName = `NoName${charList.length + 1}`;
     this.creator.character = charName;
     charList.push(new List(this.creator));
   }
@@ -229,8 +228,8 @@ class DailiesApp {
 
     // If object value is false, no highlight. If it's true, highlight value in DOM
     const checkActiveDaily = (val) => {
-      if (val === "false") return " ";
-      return " daily-complete";
+      if (val === 'false') return ' ';
+      return ' daily-complete';
     };
 
     const getChar = (obj) => {
@@ -238,7 +237,7 @@ class DailiesApp {
     };
 
     Object.entries(listObj).forEach(([key, value]) => {
-      if (key === "character") return;
+      if (key === 'character') return;
 
       html += `<p data-char='${getChar(
         listObj
@@ -258,17 +257,17 @@ class DailiesApp {
     html += `
 </div>`;
 
-    charContainers.insertAdjacentHTML("afterbegin", html);
+    charContainers.insertAdjacentHTML('afterbegin', html);
   }
 
   _getObjbyCharName(obj, charName) {}
 
   _setLocalStorage() {
-    localStorage.setItem("chars", JSON.stringify(charList));
+    localStorage.setItem('chars', JSON.stringify(charList));
   }
 
   _getLocalStorage() {
-    const data = JSON.parse(localStorage.getItem("chars"));
+    const data = JSON.parse(localStorage.getItem('chars'));
     if (!data) return;
     charList = data;
   }
@@ -392,22 +391,22 @@ const dailiesList = new DailiesApp();
 
 // Mari Shop
 
-const crystalRate = document.querySelector(".exchange-rate");
-const mariPerPack = document.querySelector(".mari--unit-pack");
-const mariPackPrice = document.querySelector(".mari--pack-price");
+const crystalRate = document.querySelector('.exchange-rate');
+const mariPerPack = document.querySelector('.mari--unit-pack');
+const mariPackPrice = document.querySelector('.mari--pack-price');
 
-const mariResults = document.querySelector(".mari--result");
+const mariResults = document.querySelector('.mari--result');
 
-const marketPerPack = document.querySelector(".market--unit-pack");
-const marketPackPrice = document.querySelector(".market--pack-price");
+const marketPerPack = document.querySelector('.market--unit-pack');
+const marketPackPrice = document.querySelector('.market--pack-price');
 
-const marketResults = document.querySelector(".market--result");
+const marketResults = document.querySelector('.market--result');
 
-const appMari = document.getElementById("mari-calc-app");
-const appToDo = document.getElementById("todo-app");
+const appMari = document.getElementById('mari-calc-app');
+const appToDo = document.getElementById('todo-app');
 
-const btnNavMari = document.getElementById("nav--mari");
-const btnNavToDo = document.getElementById("nav--todo");
+const btnNavMari = document.getElementById('nav--mari');
+const btnNavToDo = document.getElementById('nav--todo');
 
 let mariUnit = 0;
 let mariPrice = 0;
@@ -420,24 +419,24 @@ let marketResult = 0;
 
 const switchNav = function () {
   resetNav();
-  this.id === "nav--mari" && appMari.classList.add("app--active");
-  this.id === "nav--todo" && appToDo.classList.add("app--active");
-  this.classList.add("nav-btn--active");
+  this.id === 'nav--mari' && appMari.classList.add('app--active');
+  this.id === 'nav--todo' && appToDo.classList.add('app--active');
+  this.classList.add('nav-btn--active');
 };
 
 const resetNav = function () {
-  if (appMari.classList.contains("app--active")) {
-    appMari.classList.remove("app--active");
-    btnNavMari.classList.remove("nav-btn--active");
+  if (appMari.classList.contains('app--active')) {
+    appMari.classList.remove('app--active');
+    btnNavMari.classList.remove('nav-btn--active');
   }
-  if (appToDo.classList.contains("app--active")) {
-    appToDo.classList.remove("app--active");
-    btnNavToDo.classList.remove("nav-btn--active");
+  if (appToDo.classList.contains('app--active')) {
+    appToDo.classList.remove('app--active');
+    btnNavToDo.classList.remove('nav-btn--active');
   }
 };
 
 const updateResults = (element, result) => {
-  element.textContent = +result + " g";
+  element.textContent = +result + ' g';
 };
 
 const calculateBundle = (price, quantity) => {
@@ -452,38 +451,38 @@ const calculateCrystalsBundle = () => {
   return calculateCrystalsRate() * mariResult;
 };
 
-mariPerPack.addEventListener("input", (e) => {
+mariPerPack.addEventListener('input', (e) => {
   mariUnit = e.target.value;
   mariResult = calculateBundle(mariPrice, mariUnit);
   mariResult = calculateCrystalsBundle();
   updateResults(mariResults, mariResult.toFixed(1));
 });
 
-mariPackPrice.addEventListener("input", (e) => {
+mariPackPrice.addEventListener('input', (e) => {
   mariPrice = e.target.value;
   mariResult = calculateBundle(mariPrice, mariUnit);
   mariResult = calculateCrystalsBundle();
   updateResults(mariResults, mariResult.toFixed(1));
 });
 
-crystalRate.addEventListener("input", (e) => {
+crystalRate.addEventListener('input', (e) => {
   crystalsRate = e.target.value;
   mariResult = calculateBundle(mariPrice, mariUnit);
   mariResult = calculateCrystalsBundle();
   updateResults(mariResults, mariResult.toFixed(1));
 });
 
-marketPerPack.addEventListener("input", (e) => {
+marketPerPack.addEventListener('input', (e) => {
   marketUnit = e.target.value;
   marketResult = calculateBundle(marketPrice, marketUnit);
   updateResults(marketResults, marketResult.toFixed(1));
 });
 
-marketPackPrice.addEventListener("input", (e) => {
+marketPackPrice.addEventListener('input', (e) => {
   marketPrice = e.target.value;
   marketResult = calculateBundle(marketPrice, marketUnit);
   updateResults(marketResults, marketResult.toFixed(1));
 });
 
-btnNavToDo.addEventListener("click", switchNav);
-btnNavMari.addEventListener("click", switchNav);
+btnNavToDo.addEventListener('click', switchNav);
+btnNavMari.addEventListener('click', switchNav);
