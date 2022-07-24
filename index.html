@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Mari Shop Calculator</title>
+    <title>Lost Ark Tools</title>
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,11 +12,187 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="app.js" defer></script>
+    <script type="module" defer src="app.js"></script>
   </head>
   <body>
-    <header></header>
-    <main>
+    <!-- <header></header> -->
+    <div class="new-char-overlay hide">
+      <div class="new-char-modal">
+        <div class="modal-item modal--char-name-div">
+          <label for="modal--char-name">Character Name</label>
+          <input class="modal--char-name" type="text" />
+        </div>
+        <div class="modal-item">
+          <button class="modal--guild-donate" value="guild-donate">
+            Guild Donation
+          </button>
+        </div>
+        <div class="modal-item">
+          <button class="modal--unas" value="unas">Una's Task</button>
+        </div>
+        <div class="modal-item">
+          <button class="modal--chaosdg" value="chaosdg">Chaos Dungeon</button>
+        </div>
+        <div class="modal-item">
+          <button class="modal--gr" value="gr">Guardian Raid</button>
+        </div>
+        <div class="modal-item">
+          <button class="modal--adv" value="adv">Adventure Island</button>
+        </div>
+        <div class="modal-item">
+          <button class="modal--chaos-g" value="chaos-g">Chaos Gate</button>
+        </div>
+        <div class="modal-item">
+          <button class="modal--boss" value="boss">World Boss</button>
+        </div>
+        <div class="modal-item">
+          <button class="modal--rapport" value="rapport">Rapport</button>
+        </div>
+        <div class="modal-item">
+          <button class="modal--anguish" value="anguish">Anguish Isles</button>
+        </div>
+        <!-- <div class="modal-item">
+          <button class="modal--custom"><input type="text" /></button>
+        </div> -->
+        <div class="modal-item">
+          <button id="btn--create-new" class="btn--new">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon--modal-add-new"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <menu class="modal--menu-container"
+        ><li>
+          <button class="btn--close-modal">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon--close-modal"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button class="btn--finish-modal">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon--finish-modal"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button></li
+      ></menu>
+    </div>
+    <nav id="side-nav">
+      <button id="nav--todo" class="nav-button nav-btn--active">
+        Daily To-Do</button
+      ><button id="nav--mari" class="nav-button">Mari Shop Calc</button>
+    </nav>
+    <section id="todo-app" class="hide app--active">
+      <menu class="dailies-menu"
+        ><li>
+          <button class="btn--reset">Reset</button>
+        </li>
+        <li><p class="title">Dailies To-Do List</p></li>
+        <li>
+          <button class="btn--add-new">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon--add-new"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </li>
+      </menu>
+      <div class="container--todo-chars">
+        <!-- <div class="character-daily-list">
+          <div class="char-name-custom">
+            <button class="btn-char-delete">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-remove-daily"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <p>Test Char</p>
+          </div>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+        </div> -->
+        <!-- <div class="character-daily-list">
+          <div class="char-name-custom">
+            <button class="btn-char-delete">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon-remove-daily"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <p>Test Char</p>
+          </div>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item daily-complete">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+          <p class="daily-item">Guild Donation</p>
+        </div> -->
+      </div>
+    </section>
+    <section id="mari-calc-app" class="hide">
       <h1 class="hide">Mari Shop Calculator</h1>
       <section title="mari-shop" class="container">
         <h2 class="title">Mari Shop</h2>
@@ -60,7 +236,7 @@
         </div>
         <div class="results-container">
           <p class="item-header">Unit Gold</p>
-          <p class="mari--result"></p>
+          <p class="mari--result results-text"></p>
         </div>
       </section>
       <section title="market" class="container">
@@ -93,9 +269,9 @@
         </div>
         <div class="results-container">
           <p class="item-header">Unit Gold</p>
-          <p class="market--result"></p>
+          <p class="market--result results-text"></p>
         </div>
       </section>
-    </main>
+    </section>
   </body>
 </html>

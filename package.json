@@ -1,0 +1,27 @@
+{
+  "name": "lost-ark-tools",
+  "version": "1.0.0",
+  "description": "Some tools created for lost ark",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PomPoko-lab/lost-ark-tools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PomPoko-lab/lost-ark-tools/issues"
+  },
+  "homepage": "https://pompoko.io/lost-ark-tools/",
+  "devDependencies": {
+    "gh-pages": "^4.0.0",
+    "parcel": "^2.5.0"
+  },
+  "dependencies": {
+    "core-js": "^3.22.5"
+  }
+}
